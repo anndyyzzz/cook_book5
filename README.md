@@ -1,97 +1,19 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- |
-
-# Captive Portal Example
-
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
-
-This example demonstrates a simple captive portal that will redirect all DNS IP questions to point to the softAP and redirect all HTTP requests to the captive portal root page. Triggers captive portal (sign in) pop up on Android, iOS and Windows. Note that the example will not redirect HTTPS requests.
-
-## How to Use Example
-
-Before project configuration and build, be sure to set the correct chip target using `idf.py set-target <chip_name>`.
-
-### Hardware Required
-
-* A development board with ESP32/ESP32-S2/ESP32-C3 SoC (e.g., ESP32-DevKitC, ESP-WROVER-KIT, etc.)
-* A USB cable for power supply and programming
-* WiFi interface
-
-### Configure the project
-
-Open the project configuration menu (`idf.py menuconfig`).
-
-In the `Example Configuration` menu:
-
-* Set the Wi-Fi configuration.
-    * Set `SoftAP SSID`
-    * Set `SoftAP Password`
-    * Set `Maximal STA connections`
-
-### Build and Flash
-
-Build the project and flash it to the board, then run monitor tool to view serial output:
-
-```
-idf.py -p PORT flash monitor
-```
-
-(To exit the serial monitor, type ``Ctrl-]``.)
-
-See the Getting Started Guide for full steps to configure and use ESP-IDF to build projects.
-
-## Example Output
-
-```
-I (733) example: Set up softAP with IP: 192.168.4.1
-I (743) example: wifi_init_softap finished. SSID:'esp32_ssid' password:'esp32_pwd'
-I (753) example: Starting server on port: '80'
-I (753) example: Registering URI handlers
-I (763) example_dns_redirect_server: Socket created
-I (763) example_dns_redirect_server: Socket bound, port 53
-I (773) example_dns_redirect_server: Waiting for data
-I (1873) wifi:new:<1,1>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1
-I (1873) wifi:station: e8:84:a5:18:8f:80 join, AID=1, bgn, 40U
-I (2203) example: station e8:84:a5:18:8f:80 join, AID=1
-I (2833) example_dns_redirect_server: Received 50 bytes from 192.168.4.2 | DNS reply with len: 66
-I (2843) example_dns_redirect_server: Waiting for data
-I (3043) example_dns_redirect_server: Received 39 bytes from 192.168.4.2 | DNS reply with len: 55
-I (3043) example_dns_redirect_server: Waiting for data
-I (3043) example_dns_redirect_server: Received 42 bytes from 192.168.4.2 | DNS reply with len: 58
-I (3053) example_dns_redirect_server: Waiting for data
-W (3203) wifi:<ba-add>idx:4 (ifx:1, e8:84:a5:18:8f:80), tid:0, ssn:9, winSize:64
-I (3533) example: Redirecting to root
-I (5693) example_dns_redirect_server: Received 37 bytes from 192.168.4.2 | DNS reply with len: 53
-I (5693) example_dns_redirect_server: Waiting for data
-I (5783) example_dns_redirect_server: Received 46 bytes from 192.168.4.2 | DNS reply with len: 62
-I (5783) example_dns_redirect_server: Waiting for data
-I (6303) example_dns_redirect_server: Received 41 bytes from 192.168.4.2 | DNS reply with len: 57
-I (6303) example_dns_redirect_server: Waiting for data
-I (6303) example_dns_redirect_server: Received 41 bytes from 192.168.4.2 | DNS reply with len: 57
-I (6313) example_dns_redirect_server: Waiting for data
-I (6593) example: Redirecting to root
-I (9623) example: Redirecting to root
-I (12913) example: Redirecting to root
-I (13263) example_dns_redirect_server: Received 34 bytes from 192.168.4.2 | DNS reply with len: 50
-I (13273) example_dns_redirect_server: Waiting for data
-I (13273) example_dns_redirect_server: Received 34 bytes from 192.168.4.2 | DNS reply with len: 50
-I (13283) example_dns_redirect_server: Waiting for data
-I (16303) example_dns_redirect_server: Received 32 bytes from 192.168.4.2 | DNS reply with len: 48
-I (16303) example_dns_redirect_server: Waiting for data
-I (18073) example: Redirecting to root
-I (18273) example_dns_redirect_server: Received 34 bytes from 192.168.4.2 | DNS reply with len: 50
-I (18273) example_dns_redirect_server: Waiting for data
-I (18273) example_dns_redirect_server: Received 34 bytes from 192.168.4.2 | DNS reply with len: 50
-I (18283) example_dns_redirect_server: Waiting for data
-I (20683) example_dns_redirect_server: Received 42 bytes from 192.168.4.2 | DNS reply with len: 58
-I (20683) example_dns_redirect_server: Waiting for data
-I (20753) example: Redirecting to root
-I (21323) example: Redirecting to root
-I (22683) example_dns_redirect_server: Received 48 bytes from 192.168.4.2 | DNS reply with len: 64
-I (22693) example_dns_redirect_server: Waiting for data
-I (23443) example_dns_redirect_server: Received 48 bytes from 192.168.4.2 | DNS reply with len: 64
-I (23453) example_dns_redirect_server: Waiting for data
-I (23473) example: Serve root
-I (23503) example_dns_redirect_server: Received 48 bytes from 192.168.4.2 | DNS reply with len: 64
-I (23513) example_dns_redirect_server: Waiting for data
-```
+# Example นี้มีชื่อว่า captive_portal
+โดยการทำงานของ Example นี้คือทำให้ esp32 เป็น Captive Portal และเป็น Access Point โดยจะหน้าเข้าสู่ระบบกับอุปกรณ์ที่มาเชื่อมต่อ
+ขั้นตอนแรกเลือก Example
+# ![Screenshot 2024-11-03 170037](https://github.com/user-attachments/assets/41c88d65-6996-4e5b-8b90-a070a46b189d)
+รันและbuildโปรแกรม
+# ![Screenshot 2024-11-03 170842](https://github.com/user-attachments/assets/2bbdbe18-1f9e-48ec-98f6-de86762549ad)
+เลือกเชื่อมกับ esp32_ssid
+# ![Image](https://github.com/user-attachments/assets/1be0f7c5-d621-45c5-9086-9fae55693b1d)
+จะขึ้นหน้า root.html เมื่อนำอุปกรณ์เชื่อมต่อเข้าไปที่เครือข่าย
+# ![Image](https://github.com/user-attachments/assets/e75682a0-e33d-4053-8fc1-203cb3efba0e)
+# แก้ไขเพิ่มเติม
+สามารถแก้ไขชื่อและรหัส Access Point โดยการกด menuconfig
+# ![Screenshot 2024-11-03 171132](https://github.com/user-attachments/assets/69a4f2ee-7e29-4cb3-8eb4-74adec5187fb)
+หา Example Configuration และเปลี่ยนตามต้องการแล้วกด save
+# ![Screenshot 2024-11-03 171132](https://github.com/user-attachments/assets/01c4d9dc-fb76-4ca3-8ac8-691136e4dd2d)
+และสามารถแก้ไขหน้า root.html ได้
+# ![Screenshot 2024-11-03 171942](https://github.com/user-attachments/assets/3f0f77db-6c14-4200-839b-7e8bc0eee77f)
+รันและbuildโปรแกรม แล้วเชื่อมต่อจะได้หน้า root.html ที่แก้ใหม่
+# ![Image (2)](https://github.com/user-attachments/assets/cd5de3aa-631c-4423-b592-a37783b083b7)
